@@ -1,14 +1,24 @@
-// Grab the welcome-el paragraph and store it in a variable called welcomeEL
+let num_1_El = document.getElementById("num1-el")
+let num_2_El = document.getElementById("num2-el")
+let res_El = document.getElementById("res-el")
 
-let welcomeEl = document.getElementById("welcome-el")
+let num1 = 9
+let num2 = 6
+num_1_El.textContent = num1
+num_2_El.textContent = num2
 
-//Create two variables (name & greeting) that contains your name
-// and the greeting we want to render on the page
+function add(){
+    res_El.textContent = num1 + num2
+}
 
-let name = "Anson"
-let greeting = "Hi, I am "
+function subtract(){
+    res_El.textContent = num1 - num2
+}
 
-// Render the welcome message using welcomeEl.innerText
+function divide(){
+    res_El.textContent = num1 * num2
+}
 
-welcomeEl.innerText = greeting + name
-welcomeEl.innerText +=  "!"
+function multiply(){
+    res_El.textContent = num1 / num2
+}
