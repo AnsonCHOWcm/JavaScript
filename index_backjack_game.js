@@ -21,7 +21,7 @@ function startgame(){
     sum = firstCard + secondCard
 
     if (sum <= 20){
-        message = "Do you want to draw a bew card"
+        message = "Do you want to draw a new card"
     } else if (sum === 21){
         message = "Wohoo! You' ve got Blackjack"
         hasBlackjack = true
@@ -33,7 +33,31 @@ function startgame(){
     card_El.textContent = "Cards : "+firstCard + ", " + secondCard
     res_El.textContent = "Result : " + sum
 
-    game_mess_El.textContent = "Game Message : " + message
+    game_mess_El.textContent = message
+
+}
+
+function drawanothercard(){
+    let new_card = Math.floor(Math.random() * 10 +2)
+
+    sum += new_card
+
+    if (sum <= 20){
+        message = "Do you want to draw a new card"
+    } else if (sum === 21){
+        message = "Wohoo! You' ve got Blackjack"
+        hasBlackjack = true
+    } else {
+        message = "You 're out of the game"
+        isalive = false
+    }
+
+
+    card_El.textContent += ", " + new_card
+    res_El.textContent = "Result : " + sum
+
+    game_mess_El.textContent = message
+
 
 }
 
