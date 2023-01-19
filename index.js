@@ -12,3 +12,8 @@ function increment(){
     countEL.innerText = count
 }
 
+//creating a function for save purpose
+function save(){
+    console.log(count)
+}
+

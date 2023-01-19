@@ -1,7 +1,7 @@
 .textcenter{text-align: center;}
 .textleft{text-align: left;}
 .container {  
-    size: unset; 
+    size: 500px; 
     display: flex;  
     justify-content: center;  
     align-items: center;  
@@ -13,4 +13,7 @@
     }  
 #increment-btn{
         background: darkred;
+}
+#save-btn{
+    background: greenyellow;
 }
