@@ -1,5 +1,14 @@
-// document.getElementById("count-el").innerText = 5
+// initial count as 0
+//listen for the clicks on the increment button
+// increment the count variable when the button is clicked
+// change the count-el in the HTML to reflect the new count
 
-let count = 5 + 7
+let count = 0
+let countEL = document.getElementById("count-el")
 
-console.log(count)
+function increment(){
+    console.log("The button was clicked")
+    count = count + 1
+    countEL.innerText = count
+}
+
