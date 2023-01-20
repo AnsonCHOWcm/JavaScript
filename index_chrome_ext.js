@@ -7,6 +7,7 @@ if (JSON.parse(LeadsFromLocalStorage)){
 }
 const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("input-btn")
+const delBtn = document.getElementById("del-btn")
 const ulEL = document.getElementById("ul-el")
 
 inputBtn.addEventListener("click", function() {
@@ -14,6 +15,10 @@ inputBtn.addEventListener("click", function() {
     render()
     inputEl.value = ""
     localStorage.setItem("myLead", JSON.stringify(myLead))
+})
+
+delBtn.addEventListener("click", function() {
+    ClearLocalLeads()
 })
 
 render()
@@ -38,6 +43,12 @@ for (let i = 0; i < myLead.length; i++){
 
 ulEL.innerHTML = listItems
 
+}
+
+function ClearLocalLeads(){
+    localStorage.clear()
+    myLead = []
+    render()
 }
 
 
