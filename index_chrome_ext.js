@@ -1,6 +1,7 @@
 let myLead = []
-if (JSON.parse(localStorage.getItem("myLead"))){
-    myLead = JSON.parse(localStorage.getItem("myLead"))
+let LeadsFromLocalStorage = localStorage.getItem("myLead")
+if (JSON.parse(LeadsFromLocalStorage)){
+    myLead = JSON.parse(LeadsFromLocalStorage)
 } else {
     myLead = []
 }
@@ -14,6 +15,8 @@ inputBtn.addEventListener("click", function() {
     inputEl.value = ""
     localStorage.setItem("myLead", JSON.stringify(myLead))
 })
+
+render()
 
 //create a variable, listItems, to hold all HTML
 
