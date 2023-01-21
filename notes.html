@@ -10,6 +10,7 @@
         <a href="passenger_counter_app.html">Proj 1 passenger counter app</a>
         <a href="backjack_game.html">Proj 2 Backjack</a>
         <a href="chrome_ext.html">Proj 3 Chrome Extension</a>
+        <a href="async.html">Async Test</a>
         <a href="test.html">Test</a>
         <br>
         <h2>Using JavaScript in HTML and JS File</h2>
@@ -72,6 +73,97 @@
             (1) Get the element from HTML to JS : ElObj = documentElementByID("XXX")
             <br>
             (2) Setting the trigger condition and result : ElObj.addEventListener(ACTION, RESULT)
+        </p>
+        <h2>Async Function and Fetch</h2>
+        <p>(1) Async Function
+            <br>
+            It is very common to have a function chain
+            <br>
+            It means an input of one function depends on an output of another
+            <br>
+            Sometime people would just pass another function declaration as argument (maybe we dont want to create a function or variable for that)
+            <br>
+            This would cause "Callback Hell"
+            <br>
+        </p>
+        <p>
+            Example
+            <br>
+            <img src="/img/callback_hell.jpg" alt="callback_hell">
+        </p>
+        <p>
+            Solution:
+            <br>
+            Promise
+            <br>
+            It has 3 three states : Pending, Fulfilled, Rejected
+        </p>
+        <p>
+            Syntax
+            <br>
+            const myPromise = new Promise((resolve, reject) => {
+            <br>    
+                let error = false;
+            <br>
+                FUNCTION LOGIC DETERMINE error;
+            <br>
+                if(!error){
+            <br>
+                  resolve(FUNCTION CALLED AFTER RESOLVED);
+            <br>
+                } else {
+            <br>
+                reject(FUNCTION CALLED AFTER REJECTED)};
+            <br>
+                });
+            <br>
+            <br>
+            myPromise.then(value => {
+            <br>
+                SECOND FUNCTION AFTER RESOLVED;
+            <br>
+            })
+            <br>
+            .then(value => {
+            <br>
+                THIRD FUNCTION AFTER RESOLVED;
+            <br>
+            })
+            <br>
+            .catch(err =>{
+            <br>
+                SECOND FUNCTION AFTER RESOLVED;
+            <br>
+            })
+        </p>
+        <p>Promise is a class, we would create an new object for each async function
+            <br>
+            It has 2 outcome : resolve and reject
+            <br>
+            we use resolve to execute the function after current function is finished
+            <br>
+            we use reject to execute the function after current function cannot be finished
+            <br>
+            Then we can use the method "then" to continue the function chain recurrsively
+            <br>
+            Or we can use the method "catch" to execute the exception (fail to run) function and print error warning
+        </p>
+        <h2>Fetch</h2>
+        It is an API to get data from a url
+        <br>
+        It also has method "then" to execute next function/next step
+        <br>
+        Beisdes, the return value from fetch is JSON type, we need to execute the method of the return called "json()" to retrieve the data
+        <h2>Async, Await</h2>
+        <p>
+            Async : it is an indicator used for function which means the function lines would not execute one-by-one accoringly
+            <br>
+            Syntax : const FUNC_NAME = async() => {BODY}
+        </p>
+        <p>
+            Await : it means that it would execute next line immediately and stimultanuously
+            <br>
+            Syntax : const VARIABLE = await EXPRESSION
         </p>
     </body>
 </html>
