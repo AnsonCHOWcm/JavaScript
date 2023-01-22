@@ -45,7 +45,29 @@ fetch("http://jsonplaceholder.typicode.com/users")
     console.log(data)
 })
 
-// Async / Await
+// Async / Await 
+
+const getAlUserEmails = async () => {
+    const response = await fetch("http://jsonplaceholder.typicode.com/users");
+    const jsonUserData = await response.json();
+
+    const userEmailArray = jsonUserData.map(user =>{
+        return user.email;
+    });
+
+    console.log(userEmailArray)
+}
+
+const getAlUserNames = async () => {
+    const response = await fetch("http://jsonplaceholder.typicode.com/users");
+    const jsonUserData = await response.json();
+
+    const userEmailArray = jsonUserData.map(user =>{
+        return user.name;
+    });
+
+    console.log(userEmailArray)
+}
 
 const myUsers = {
     userList : []
@@ -61,7 +83,60 @@ const myCoolFunction = async() =>{
 const anotherFunction = async() => {
     const data = await myCoolFunction();
     myUsers.userList = data;
-    console.log(myUsers.userList)
+    console.log(myUsers.userList);
 }
 
 anotherFunction()
+
+getAlUserEmails()
+.then(() =>{
+    console.log("Get All Emails");
+})
+getAlUserNames()
+
+console.log(getAlUserEmails())
+console.log(getAlUserNames())
+
+//abstraction to function
+
+let header = new Headers()
+
+header.append('Access-Control-Allow-Origin', 'http://127.0.0.1:5500/async.html')
+
+const getDataFromForm = () =>{
+    const requestObj = {
+        firstName: "Bruce",
+        lastName: "Lee",
+        categories: ["nerdy"]
+    };
+    return requestObj;
+}
+
+const buildRequestUrl = (requestData) => {
+    return `http://api.icndb.com/jokes/random?firstname=${requestData.firstName}&lastName=${
+        requestData.lastName}&limitTo=${requestData.categories}`;
+}
+
+const requestJoke = async (url) => {
+    const response = await fetch(url , {
+        method : "GET",
+        headers : header
+    });
+    const jsonResponse = await response.json();
+    const joke = jsonResponse.value.joke;
+    postJokeToPage(joke);
+}
+
+const postJokeToPage = (joke) => {
+    console.log(joke)
+}
+
+const ProcessRequest = async () => {
+    const requestData = getDataFromForm();
+    const requesturl = buildRequestUrl(requestData);
+    await requestJoke(requesturl);
+}
+
+ProcessRequest()
+
+

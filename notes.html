@@ -149,21 +149,33 @@
             Or we can use the method "catch" to execute the exception (fail to run) function and print error warning
         </p>
         <h2>Fetch</h2>
-        It is an API to get data from a url
+        It is an API to get data from a url and allow user specification on the request via object
+        <br>
+        Syntax : fetch(URL, OBJECT(method : XXX, headers: XXX, body: XXX))
         <br>
         It also has method "then" to execute next function/next step
         <br>
-        Beisdes, the return value from fetch is JSON type, we need to execute the method of the return called "json()" to retrieve the data
+        Beisdes, the return value from fetch is JSON type, we need to execute the method of the response called "json()" to retrieve the data
+        <br>
+        To access the data inside, we may use the method "map" of JSON Data and define a function within it
+        <br>
+        Syntax : const VARIABLE_NAME = JSON_DATA.map(user => {user.ATTRIBUTE})
+        <br>
+        ***Fetch itself is a promise
         <h2>Async, Await</h2>
         <p>
-            Async : it is an indicator used for function which means the function lines would not execute one-by-one accoringly
+            Async : it is used in function declaration with the effect of making the function return a promise (.then/.catch can be used)
             <br>
             Syntax : const FUNC_NAME = async() => {BODY}
         </p>
         <p>
-            Await : it means that it would execute next line immediately and stimultanuously
+            Await : It can only be used within async function and before the promise as attribute
             <br>
-            Syntax : const VARIABLE = await EXPRESSION
+            The function execution would be pasued at await line and wait for the promise to be settle 
+            <br>
+            while at the same time the program would execute next line outside the function
+            <br>
+            Syntax : const VARIABLE = await PROMISE
         </p>
     </body>
 </html>
